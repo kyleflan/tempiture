@@ -1,0 +1,16 @@
+{
+  "name": "tempiture",
+  "version": "0.1.0",
+  "description": "A wireless thermometer with multiple probes for Raspberry Pi.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphite": "0.0.7",
+    "nexmo": "^2.0.2",
+    "mcp-spi-adc": "^0.4.0"
+  }
+}

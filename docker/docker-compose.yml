@@ -1,0 +1,32 @@
+version: "2"
+services:
+    graphite:
+        image: easypi/graphite-arm
+        restart: always
+        ports:
+            - "2003:2003"
+            - "2004:2004"
+            - "7002:7002"
+            - "8080:8080"
+            - "9001:9001"
+        volumes:
+            - "/data/graphite/storage/whisper/:/opt/graphite/storage/whisper"
+            - "/data/graphite/storage/log/:/opt/graphite/storage/log"
+        networks:
+            - webnet
+    grafana:
+        #image: grafana/grafana
+        image: easypi/grafana-arm
+        restart: always
+        ports:
+            - "3000:3000"
+        environment:
+            - GF_AUTH_ANONYMOUS_ENABLED=true
+        volumes:
+            - "/data/grafana/lib:/var/lib/grafana"
+            - "/data/grafana/etc:/etc/grafana"
+        networks:
+            - webnet
+
+networks:
+    webnet:
