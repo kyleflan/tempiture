@@ -12,6 +12,7 @@ services:
         volumes:
             - "/data/graphite/storage/whisper/:/opt/graphite/storage/whisper"
             - "/data/graphite/storage/log/:/opt/graphite/storage/log"
+            - "/data/graphite/storage/log/webapp/:/opt/graphite/storage/log/webapp"
         networks:
             - webnet
     grafana:
@@ -24,7 +25,8 @@ services:
             - GF_AUTH_ANONYMOUS_ENABLED=true
         volumes:
             - "/data/grafana/lib:/var/lib/grafana"
-            - "/data/grafana/etc:/etc/grafana"
+            # uncomment if you want to mount your own config files
+            #- "/data/grafana/etc:/etc/grafana"
         networks:
             - webnet
 
