@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "argparse": "^1.0.9",
     "graphite": "0.0.7",
-    "mcp-spi-adc": "^0.4.0",
-    "minimist": "^1.2.0",
-    "nexmo": "^2.0.2"
+    "jsmin": "^1.0.1",
+    "mcp-spi-adc": "^0.4.0"
   }
 }
