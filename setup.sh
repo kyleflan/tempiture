@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 PI_USER=pi
 
 # enable SPI on the pi
@@ -41,8 +41,8 @@ docker-compose -f ./docker/docker-compose.yml -p tempiture up
 
 # create data source on grafana
 chmod +x ./grafana-create-datasource.curl
-sudo -u $PI_USER ./grafana-create-datasource.curl
+sudo -u $PI_USER /bin/bash ./grafana-create-datasource.curl
 
 # create dashboard
 chmod +x ./grafana-create-dashboard.curl
-sudo -u $PI_USER ./grafana-create-dashboard.curl
+sudo -u $PI_USER /bin/bash ./grafana-create-dashboard.curl
