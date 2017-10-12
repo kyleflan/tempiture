@@ -37,7 +37,7 @@ sudo -u $PI_USER cd ./tempiture
 sudo -u $PI_USER npm install
 
 # start docker containers
-docker-compose -f ./docker/docker-compose.yml -p tempiture up
+eval "docker-compose -f ./docker/docker-compose.yml -p tempiture up" &>/dev/null &disown
 
 # create data source on grafana
 chmod +x ./grafana-create-datasource.curl
@@ -46,3 +46,8 @@ sudo -u $PI_USER /bin/bash ./grafana-create-datasource.curl
 # create dashboard
 chmod +x ./grafana-create-dashboard.curl
 sudo -u $PI_USER /bin/bash ./grafana-create-dashboard.curl
+
+# start pm2
+sudo -u $PI_USER env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $PI_USER --hp $HOME
+sudo -u $PI_USER pm2 start tempiture.js
+sudo -u $PI_USER pm2 save
