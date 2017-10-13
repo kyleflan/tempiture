@@ -23,7 +23,7 @@ parser.addArgument(
 	{ help: 'Hostname or IP address of Graphite server.',
 		required: false,
 		dest: 'GRAPHITE_SERVER',
-		defaultValue: 'graphite'});
+		defaultValue: 'localhost'});
 
 parser.addArgument(
 	[ '--graphite-port' ],
@@ -107,9 +107,11 @@ function init() {
 		    let tempF = (tempC * 1.8) + 32;
 		    tempF = Math.round(tempF*10)/10;
 
+			/* Uncomment for more debugging
 			console_log("ADC Value of probe " + this.name + " is: " + adc_value);
 			console_log("Resistance of probe " + this.name + " is: " + r);
 			console_log("Temp of probe " + this.name + " is: " + tempF);
+			*/
 
 			// graphite metric object to send to graphite database
 			let probe_data = {
@@ -124,6 +126,7 @@ function init() {
 					}
 				}
 			};
+			console_log(probe_data);
 
 			// write to graphite db
 			graphite_client.write(probe_data, function(err) {
