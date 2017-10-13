@@ -128,7 +128,7 @@ function init() {
 			// write to graphite db
 			graphite_client.write(probe_data, function(err) {
 				if (!err === null) {
-					console_log("Failed to write metrics to the metrics server. err: " + err)
+					console.log("Failed to write metrics to the metrics server. err: " + err)
 				} 
 			});
 
