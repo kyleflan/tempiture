@@ -1,1 +1,1 @@
-curl -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"name":"tempiture-graphite", "type":"graphite", "url":"http://graphite:8080", "access":"direct", "basicAuth":false}' http://admin:admin@tempiture.local:3000/api/datasources 
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"name":"tempiture-graphite", "type":"graphite", "url":"http://graphite:8080", "access":"proxy", "basicAuth":false}' http://admin:admin@tempiture.local:3000/api/datasources 
