@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_PITHERMINO",
-      "label": "pithermino",
+      "name": "DS_TEMPITURE",
+      "label": "tempiture",
       "description": "",
       "type": "datasource",
       "pluginId": "graphite",
@@ -59,7 +59,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "${DS_PITHERMINO}",
+          "datasource": "tempiture",
           "format": "farenheit",
           "gauge": {
             "maxValue": 100,
@@ -132,7 +132,7 @@
             "rgb(59, 180, 38)",
             "rgba(214, 0, 0, 0.97)"
           ],
-          "datasource": "${DS_PITHERMINO}",
+          "datasource": "tempiture-graphite",
           "format": "farenheit",
           "gauge": {
             "maxValue": 100,
@@ -210,45 +210,11 @@
       "height": 381,
       "panels": [
         {
-          "alert": {
-            "conditions": [
-              {
-                "evaluator": {
-                  "params": [
-                    75
-                  ],
-                  "type": "gt"
-                },
-                "operator": {
-                  "type": "and"
-                },
-                "query": {
-                  "params": [
-                    "A",
-                    "5m",
-                    "now"
-                  ]
-                },
-                "reducer": {
-                  "params": [],
-                  "type": "avg"
-                },
-                "type": "query"
-              }
-            ],
-            "executionErrorState": "alerting",
-            "frequency": "60s",
-            "handler": 1,
-            "message": "There was an alert on the chamber probe being above 74 degrees.",
-            "name": "Temperatures alert",
-            "noDataState": "no_data",
-            "notifications": []
-          },
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PITHERMINO}",
+          "datasource": "tempiture-graphite",
           "fill": 1,
           "id": 1,
           "legend": {
