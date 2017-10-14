@@ -48,8 +48,16 @@ chmod +x ./grafana-create-dashboard.curl
 sudo -u $PI_USER /bin/bash ./grafana-create-dashboard.curl
 
 # start pm2
-sudo -u $PI_USER env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $PI_USER --hp $HOME
 sudo -u $PI_USER pm2 start tempiture.js
 sudo -u $PI_USER pm2 save
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $PI_USER --hp /home/$PI_USER
 
-echo "The setup has completed. You should change the admin password for your Grafana instance by logging in to http://localhost:3000/login and then choosing Menu -> Admin -> Global Users -> admin -> edit."
+echo "********************************************************************************"
+echo "********************************************************************************"
+echo ""
+echo "The setup has completed. You should change the admin password for your Grafana " 
+echo "instance by logging in to http://localhost:3000/login and then choosing Menu -> "
+echo "Admin -> Global Users -> admin -> edit."
+echo ""
+echo "********************************************************************************"
+echo "********************************************************************************"
