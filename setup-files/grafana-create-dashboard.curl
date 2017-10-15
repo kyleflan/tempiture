@@ -1,0 +1,1 @@
+curl -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d @./setup-files/grafana-tempiture-dashboard-post.json http://admin:admin@tempiture.local:3000/api/dashboards/db

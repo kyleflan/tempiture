@@ -1,0 +1,1 @@
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X PUT http://admin:admin@tempiture.local:3000/api/org/preferences -d '{"theme":"dark", "homeDashboardID":2}' # 2 is the id of the tempiture dashboard we just created, we should improve this in the future to actually retrieve the ID based on the dashboard name
