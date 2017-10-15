@@ -8,6 +8,9 @@ sed -i -e 's/#dtparam=spi=on/dtparam=spi=on/' /boot/config.txt
 curl -sL https://deb.nodesource.com/setup_6.x | bash -
 apt-get install -y nodejs
 
+# install jq for parsing jquery on command line
+apt-get -y install jq
+
 # install python-pip
 apt-get -y install python-pip 
 
@@ -40,16 +43,17 @@ sudo -u $PI_USER npm install
 eval "docker-compose -f ./docker/docker-compose.yml -p tempiture up" &>/dev/null &disown
 
 # create data source on grafana
-chmod +x ./setup-files/grafana-create-datasource.curl
 sudo -u $PI_USER /bin/bash ./setup-files/grafana-create-datasource.curl
 
 # create dashboard
-chmod +x ./setup-files/grafana-create-dashboard.curl
 sudo -u $PI_USER /bin/bash ./setup-files/grafana-create-dashboard.curl
 
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 # set default dashboard
-chmod +x ./setup-files/grafana-set-default-dashboard.curl
 sudo -u $PI_USER /bin/bash ./setup-files/grafana-set-default-dashboard.curl
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
 # start pm2
 sudo -u $PI_USER pm2 start tempiture.js
