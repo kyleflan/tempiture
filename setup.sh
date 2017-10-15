@@ -32,10 +32,6 @@ usermod -aG docker $PI_USER
 # install pm2
 npm install pm2@latest -g
 
-# clone git repo
-sudo -u $PI_USER git clone https://github.com/kyleflan/tempiture
-sudo -u $PI_USER cd ./tempiture
-
 # install index.js...this gets all node packages necessary for tempiture
 sudo -u $PI_USER npm install
 
